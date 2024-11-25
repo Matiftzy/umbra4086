@@ -3,28 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pesan Terakhir</title>
+  <title>Pesan Terakhir - Umbra 4086</title>
   <style>
     body {
       background-color: #000;
       color: #fff;
       font-family: 'Courier New', Courier, monospace;
       text-align: center;
-      padding-top: 20%;
-      transition: background-color 1s, color 1s;
+      padding-top: 10%;
     }
 
-    .hidden-message {
-      font-size: 3em;
-      font-weight: bold;
-      opacity: 0;
-      color: #00ff00;
-      transition: opacity 2s ease-in-out;
+    .message-box {
+      font-size: 1.5em;
+      margin: 20px auto;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 2px solid #555;
+      width: 60%;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
-    body:hover .hidden-message {
-      opacity: 1;
-      color: #ff6347;
+    .hidden-image {
+      width: 80%;
+      height: auto;
+      border: 2px solid #fff;
+      filter: brightness(0.5) contrast(1.2) saturate(0.5);
+      transition: filter 1s ease-in-out;
+      margin-top: 30px;
+    }
+
+    .hidden-image:hover {
+      filter: none;
     }
 
     .instructions {
@@ -32,12 +41,21 @@
       color: #bbb;
       margin-top: 20px;
     }
+
+    .hint {
+      font-size: 1.2em;
+      color: #ff6347;
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
-  <div>
-    <div class="hidden-message">Ayo Balikan</div>
-    <div class="instructions">Hover over the page to reveal the final message...</div>
+  <div class="message-box">
+    <p>Pesan tersembunyi ada di dalam gambar berikut. Untuk membacanya, ubah kontras dan saturasi gambar menggunakan aplikasi pengeditan gambar.</p>
+    <div class="hint">
+      <p>Petunjuk: Gunakan aplikasi seperti Photoshop atau GIMP. Perhatikan pengaturan kontras dan saturasi untuk menemukan pesan tersembunyi.</p>
+    </div>
+    <img src="hidden-image.jpg" alt="Teks Tersembunyi" class="hidden-image">
   </div>
 </body>
 </html>
