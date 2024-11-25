@@ -3,59 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pesan Terakhir - Umbra 4086</title>
+  <title>Pesan Terakhir</title>
   <style>
     body {
       background-color: #000;
-      color: #fff;
+      color: #000;
       font-family: 'Courier New', Courier, monospace;
-      text-align: center;
-      padding-top: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      user-select: none; /* Menghilangkan kemampuan untuk menyeleksi teks */
+      -webkit-user-select: none; /* Untuk Safari */
+      -moz-user-select: none; /* Untuk Firefox */
+      pointer-events: none; /* Menghindari interaksi dengan elemen halaman */
     }
 
-    .message-box {
-      font-size: 1.5em;
-      margin: 20px auto;
-      padding: 15px;
-      background-color: rgba(0, 0, 0, 0.8);
-      border: 2px solid #555;
-      width: 60%;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    .hidden-message {
+      font-size: 5em;
+      font-weight: bold;
+      color: #000;
+      text-shadow: 0px 0px 10px #fff, 0px 0px 20px #fff, 0px 0px 30px #fff;
+      opacity: 0.01;
+      transition: opacity 1s ease-in-out;
+      pointer-events: auto; /* Mengaktifkan interaksi pada pesan tersembunyi */
     }
 
-    .hidden-image {
-      width: 80%;
-      height: auto;
-      border: 2px solid #fff;
-      filter: brightness(0.5) contrast(1.2) saturate(0.5);
-      transition: filter 1s ease-in-out;
-      margin-top: 30px;
-    }
-
-    .hidden-image:hover {
-      filter: none;
-    }
-
-    .instructions {
-      font-size: 1.2em;
-      color: #bbb;
-      margin-top: 20px;
-    }
-
-    .hint {
-      font-size: 1.2em;
-      color: #ff6347;
-      margin-top: 30px;
+    /* Efek hover untuk melihat teks */
+    body:hover .hidden-message {
+      opacity: 1;
+      color: #ff6347; /* Warna berubah saat mouse berada di atas */
     }
   </style>
 </head>
 <body>
-  <div class="message-box">
-    <p>Pesan tersembunyi ada di dalam gambar berikut. Untuk membacanya, ubah kontras dan saturasi gambar menggunakan aplikasi pengeditan gambar.</p>
-    <div class="hint">
-      <p>Petunjuk: Gunakan aplikasi seperti Photoshop atau GIMP. Perhatikan pengaturan kontras dan saturasi untuk menemukan pesan tersembunyi.</p>
-    </div>
-    <img src="hidden-image.jpg" alt="Teks Tersembunyi" class="hidden-image">
+  <div class="hidden-message">
+    Ayo Balikan
   </div>
+
+  <script>
+    // Menghindari pembukaan alat inspect dengan keyboard atau klik kanan
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault(); // Mencegah klik kanan
+    });
+
+    // Mencegah pembukaan Developer Tools (Inspect) dengan keyboard
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+        e.preventDefault(); // Mencegah F12 atau Ctrl + Shift + I
+      }
+    });
+
+    // Mencegah pembukaan Developer Tools dengan mengubah status dev tools
+    setInterval(function() {
+      if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+        window.location.reload(); // Refresh halaman jika inspect terbuka
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
