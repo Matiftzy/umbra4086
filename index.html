@@ -14,11 +14,25 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            user-select: none; /* Mencegah pemilihan teks */
         }
         h1 {
             font-size: 3em;
         }
     </style>
+    <script>
+        // Mencegah klik kanan pada halaman
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Mencegah penggunaan tombol F12 dan Ctrl+Shift+I (DevTools)
+        document.onkeydown = function(e) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "U")) {
+                e.preventDefault();
+            }
+        };
+    </script>
 </head>
 <body>
     <h1>nɒʞilɒઘ oγA</h1>
